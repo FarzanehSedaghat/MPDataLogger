@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="SourceFiles\InformationObject.cpp" />
+    <ClCompile Include="SourceFiles\LoggingHandler.cpp" />
+    <ClCompile Include="SourceFiles\main.cpp" />
+    <ClCompile Include="SourceFiles\ModbusMasterHandler.cpp" />
+    <ClCompile Include="SourceFiles\modbus\modbus-data.c" />
+    <ClCompile Include="SourceFiles\modbus\modbus-rtu.c" />
+    <ClCompile Include="SourceFiles\modbus\modbus-tcp.c" />
+    <ClCompile Include="SourceFiles\modbus\modbus.c" />
+    <ClCompile Include="SourceFiles\RTDB.cpp" />
+    <ClCompile Include="SourceFiles\SqliteHelper.cpp" />
+    <ClCompile Include="sqlite\sqlite3.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="HeaderFiles\InformationObject.h" />
+    <ClInclude Include="HeaderFiles\LoggingHandler.h" />
+    <ClInclude Include="HeaderFiles\ModbusExtension.h" />
+    <ClInclude Include="HeaderFiles\ModbusExtensionGroup.h" />
+    <ClInclude Include="HeaderFiles\ModbusMasterHandler.h" />
+    <ClInclude Include="HeaderFiles\modbus\modbus-private.h" />
+    <ClInclude Include="HeaderFiles\modbus\modbus-rtu-private.h" />
+    <ClInclude Include="HeaderFiles\modbus\modbus-rtu.h" />
+    <ClInclude Include="HeaderFiles\modbus\modbus-tcp-private.h" />
+    <ClInclude Include="HeaderFiles\modbus\modbus-tcp.h" />
+    <ClInclude Include="HeaderFiles\modbus\modbus-version.h" />
+    <ClInclude Include="HeaderFiles\modbus\modbus.h" />
+    <ClInclude Include="HeaderFiles\RTDB.h" />
+    <ClInclude Include="HeaderFiles\sqlite3.h" />
+    <ClInclude Include="HeaderFiles\SqliteHelper.h" />
+    <ClInclude Include="HeaderFiles\Value.h" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{C0209395-5623-4280-98D6-0C0C8B9A9487}</ProjectGuid>
+    <RootNamespace>DataLogger</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(ProjectDir)HeaderFiles;$(ProjectDir)HeaderFiles\modbus;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
